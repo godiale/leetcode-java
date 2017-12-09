@@ -2,19 +2,15 @@ package leetcode;
 
 public class Palindrome {
     public boolean isPalindrome(int x) {
-        if (x == Integer.MIN_VALUE) {
+        if (x < 0) {
             return false;
         }
-        if (x < 0) {
-            x = -x;
-        }
-
-        int i = 1;
 
         long m = 1;
         int j = 1;
+        int i = 1;
 
-        while (m * 10 < x) {
+        while (m * 10 <= x) {
             m *= 10;
             ++j;
         }

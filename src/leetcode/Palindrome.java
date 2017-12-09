@@ -7,15 +7,12 @@ public class Palindrome {
         }
 
         long m = 1;
-        int j = 1;
-        int i = 1;
 
         while (m * 10 <= x) {
             m *= 10;
-            ++j;
         }
 
-        while (j > i) {
+        while (m >= 10) {
             int a = (int)(x / m);
             int b = x % 10;
             if (a != b) {
@@ -23,10 +20,7 @@ public class Palindrome {
             }
             x = x - (int)(a * m);
             x = (x - b) / 10;
-
             m /= 100;
-            j--;
-            i++;
         }
 
         return true;

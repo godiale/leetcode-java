@@ -28,11 +28,11 @@ public class PalindromeTest extends Timeit {
         Assert.assertEquals(false, palindrome.isPalindrome(Integer.MIN_VALUE));
     }
 
-    //@Test
+    @Test
     public void testMany() throws Exception {
         Palindrome palindrome = new Palindrome();
         Method method = TestUtils.getMethod("leetcode.Palindrome", "isPalindrome");
-        for (int i=0; i < 1000000; ++i) {
+        for (int i=0; i < 100000; ++i) {
             method.invoke(palindrome, 234565432);
         }
     }

@@ -10,8 +10,6 @@ public class RomanTest extends Timeit {
     @Test
     public void test() {
         Roman roman = new Roman();
-        Assert.assertEquals(-1,   roman.romanToInt("-II"));
-        Assert.assertEquals(+0,   roman.romanToInt(""));
         Assert.assertEquals(1,    roman.romanToInt("I"));
         Assert.assertEquals(2,    roman.romanToInt("II"));
         Assert.assertEquals(3,    roman.romanToInt("III"));

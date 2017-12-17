@@ -1,7 +1,7 @@
 package leetcode;
 
 public class Roman {
-    public int romanToInt(String s) {
+    public int romanToInt_Brute(String s) {
         int res = 0;
         int cur = 0;
         for (int i = 0; i < s.length(); ++i) {
@@ -49,6 +49,44 @@ public class Roman {
             }
         }
         res += cur;
+        return res;
+    }
+
+    private int valueOf(char c) {
+        switch (c) {
+        case 'I': return 1;
+        case 'V': return 5;
+        case 'X': return 10;
+        case 'L': return 50;
+        case 'C': return 100;
+        case 'D': return 500;
+        case 'M': return 1000;
+        default:  return 0;
+        }
+    }
+
+    private int penalty(char c1, char c2) {
+        if (c1 == 'I' && (c2 == 'V' || c2 == 'X')) {
+            return -2;
+        }
+        else if (c1 == 'X' && (c2 == 'L' || c2 == 'C')) {
+            return -20;
+        }
+        else if (c1 == 'C' && (c2 == 'D' || c2 == 'M')) {
+            return -200;
+        }
+        return 0;
+    }
+
+    public int romanToInt(String s) {
+        int res = 0;
+        for (int i = 0; i < s.length()-1; ++i) {
+            char c  = s.charAt(i);
+            char cn = s.charAt(i+1);
+            res += valueOf(c);
+            res += penalty(c, cn);
+        }
+        res += valueOf(s.charAt(s.length()-1));
         return res;
     }
 }

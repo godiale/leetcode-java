@@ -61,7 +61,7 @@ public class RomanTest extends Timeit {
         Assert.assertEquals(4000, roman.romanToInt("MMMM"));
     }
 
-    //@Test
+    @Test
     public void testMany() throws Exception {
         Roman roman = new Roman();
         Method method = TestUtils.getMethod("leetcode.Roman", "romanToInt");

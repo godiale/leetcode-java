@@ -22,12 +22,15 @@ public class LongestPalindrome {
         }
         int cb = 0, ce = 1;
         for (int n = 0; n < s.length(); ++n) {
-            for (int m = n + 1; m <= s.length(); ++m) {
-                if (m - n > ce - cb) {
-                    if (isPalindrome(s, n, m)) {
-                        cb = n;
-                        ce = m;
+            for (int d = 1; d <= 2; ++d) {
+                int ib = n, ie = n + d;
+                while (ib >= 0 && ie <= s.length() && s.charAt(ib) == s.charAt(ie - 1)) {
+                    if (ie - ib > ce - cb) {
+                        cb = ib;
+                        ce = ie;
                     }
+                    --ib;
+                    ++ie;
                 }
             }
         }

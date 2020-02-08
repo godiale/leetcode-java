@@ -12,6 +12,10 @@ public class LongestPalindrome {
         return true;
     }
 
+    static boolean isPalindrome(String s) {
+        return isPalindrome(s, 0, s.length());
+    }
+
     public String longestPalindrome(String s) {
         if (s.length() <= 1) {
             return s;

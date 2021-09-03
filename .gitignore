@@ -1,4 +1,2 @@
-/bin
-.idea
-leetcode.iml
-
+.gradle
+build

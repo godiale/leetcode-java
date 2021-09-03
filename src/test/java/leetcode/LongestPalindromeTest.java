@@ -1,14 +1,13 @@
 package leetcode;
 
-import org.junit.jupiter.api.Test;
-import org.apache.commons.lang3.StringUtils;
-import org.junit.jupiter.api.extension.ExtendWith;
-
 import java.util.Random;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import org.apache.commons.lang3.StringUtils;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.isOneOf;

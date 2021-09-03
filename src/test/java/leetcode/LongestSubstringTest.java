@@ -1,8 +1,8 @@
 package leetcode;
 
 import org.junit.jupiter.api.Test;
-import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.stream.Stream;
 

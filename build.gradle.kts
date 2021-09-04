@@ -16,6 +16,6 @@ dependencies {
     testImplementation("org.hamcrest:hamcrest:2.2")
 }
 
-test {
+tasks.withType<Test> {
     useJUnitPlatform()
 }

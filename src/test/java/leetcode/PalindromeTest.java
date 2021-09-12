@@ -1,43 +1,41 @@
 package leetcode;
 
-import java.lang.reflect.Method;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 @ExtendWith(TimingExtension.class)
 public class PalindromeTest {
-
     @Test
     public void test() {
         Palindrome palindrome = new Palindrome();
-        assertEquals(true,  palindrome.isPalindrome(0));
-        assertEquals(true,  palindrome.isPalindrome(1));
-        assertEquals(false, palindrome.isPalindrome(-1));
-        assertEquals(false, palindrome.isPalindrome(10));
-        assertEquals(false, palindrome.isPalindrome(12));
-        assertEquals(true,  palindrome.isPalindrome(121));
-        assertEquals(false, palindrome.isPalindrome(-989));
-        assertEquals(false, palindrome.isPalindrome(1000));
-        assertEquals(true,  palindrome.isPalindrome(2332));
-        assertEquals(false, palindrome.isPalindrome(3332));
-        assertEquals(false, palindrome.isPalindrome(444553444));
-        assertEquals(true,  palindrome.isPalindrome(44455444));
-        assertEquals(false, palindrome.isPalindrome(-1256776521));
-        assertEquals(true,  palindrome.isPalindrome(2147447412));
-        assertEquals(false, palindrome.isPalindrome(Integer.MAX_VALUE));
-        assertEquals(false, palindrome.isPalindrome(Integer.MIN_VALUE));
+        assertTrue(palindrome.isPalindrome(0));
+        assertTrue(palindrome.isPalindrome(1));
+        assertTrue(palindrome.isPalindrome(121));
+        assertTrue(palindrome.isPalindrome(2332));
+        assertTrue(palindrome.isPalindrome(44455444));
+        assertTrue(palindrome.isPalindrome(2147447412));
+        assertFalse(palindrome.isPalindrome(-1));
+        assertFalse(palindrome.isPalindrome(10));
+        assertFalse(palindrome.isPalindrome(12));
+        assertFalse(palindrome.isPalindrome(-989));
+        assertFalse(palindrome.isPalindrome(1000));
+        assertFalse(palindrome.isPalindrome(3332));
+        assertFalse(palindrome.isPalindrome(444553444));
+        assertFalse(palindrome.isPalindrome(-1256776521));
+        assertFalse(palindrome.isPalindrome(Integer.MAX_VALUE));
+        assertFalse(palindrome.isPalindrome(Integer.MIN_VALUE));
     }
 
     @Test
-    public void testMany() throws Exception {
+    public void testMany() {
         Palindrome palindrome = new Palindrome();
-        Method method = TestUtils.getMethod("leetcode.Palindrome", "isPalindrome");
         for (int i=0; i < 100000; ++i) {
-            method.invoke(palindrome, 234565432);
+            palindrome.isPalindrome(234565432);
         }
     }
-
 }

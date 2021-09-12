@@ -1,77 +1,91 @@
 package leetcode;
 
-import java.lang.reflect.Method;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
+
+import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(TimingExtension.class)
 public class RomanTest {
-
-    @ParameterizedTest(name = "#{index} - Run test for method {0}")
-    @ValueSource(strings = {"romanToInt", "romanToInt_Brute"})
-    public void test(String methodName) throws Exception {
-        Roman roman = new Roman();
-        Method method = TestUtils.getMethod("leetcode.Roman", methodName);
-        assertEquals(1,    method.invoke(roman, "I"));
-        assertEquals(2,    method.invoke(roman, "II"));
-        assertEquals(3,    method.invoke(roman, "III"));
-        assertEquals(4,    method.invoke(roman, "IV"));
-        assertEquals(5,    method.invoke(roman, "V"));
-        assertEquals(6,    method.invoke(roman, "VI"));
-        assertEquals(7,    method.invoke(roman, "VII"));
-        assertEquals(8,    method.invoke(roman, "VIII"));
-        assertEquals(9,    method.invoke(roman, "IX"));
-        assertEquals(10,   method.invoke(roman, "X"));
-        assertEquals(11,   method.invoke(roman, "XI"));
-        assertEquals(12,   method.invoke(roman, "XII"));
-        assertEquals(13,   method.invoke(roman, "XIII"));
-        assertEquals(14,   method.invoke(roman, "XIV"));
-        assertEquals(15,   method.invoke(roman, "XV"));
-        assertEquals(16,   method.invoke(roman, "XVI"));
-        assertEquals(17,   method.invoke(roman, "XVII"));
-        assertEquals(18,   method.invoke(roman, "XVIII"));
-        assertEquals(19,   method.invoke(roman, "XIX"));
-        assertEquals(20,   method.invoke(roman, "XX"));
-        assertEquals(30,   method.invoke(roman, "XXX"));
-        assertEquals(40,   method.invoke(roman, "XL"));
-        assertEquals(50,   method.invoke(roman, "L"));
-        assertEquals(60,   method.invoke(roman, "LX"));
-        assertEquals(70,   method.invoke(roman, "LXX"));
-        assertEquals(80,   method.invoke(roman, "LXXX"));
-        assertEquals(90,   method.invoke(roman, "XC"));
-        assertEquals(100,  method.invoke(roman, "C"));
-        assertEquals(200,  method.invoke(roman, "CC"));
-        assertEquals(300,  method.invoke(roman, "CCC"));
-        assertEquals(400,  method.invoke(roman, "CD"));
-        assertEquals(500,  method.invoke(roman, "D"));
-        assertEquals(600,  method.invoke(roman, "DC"));
-        assertEquals(700,  method.invoke(roman, "DCC"));
-        assertEquals(800,  method.invoke(roman, "DCCC"));
-        assertEquals(900,  method.invoke(roman, "CM"));
-        assertEquals(1000, method.invoke(roman, "M"));
-        assertEquals(39,   method.invoke(roman, "XXXIX"));
-        assertEquals(207,  method.invoke(roman, "CCVII"));
-        assertEquals(246,  method.invoke(roman, "CCXLVI"));
-        assertEquals(1066, method.invoke(roman, "MLXVI"));
-        assertEquals(1776, method.invoke(roman, "MDCCLXXVI"));
-        assertEquals(1954, method.invoke(roman, "MCMLIV"));
-        assertEquals(1990, method.invoke(roman, "MCMXC"));
-        assertEquals(2014, method.invoke(roman, "MMXIV"));
-        assertEquals(3999, method.invoke(roman, "MMMCMXCIX"));
-        assertEquals(4000, method.invoke(roman, "MMMM"));
+    private void test(Function<String, Integer> f) {
+        assertEquals(1,    f.apply("I"));
+        assertEquals(2,    f.apply("II"));
+        assertEquals(3,    f.apply("III"));
+        assertEquals(4,    f.apply("IV"));
+        assertEquals(5,    f.apply("V"));
+        assertEquals(6,    f.apply("VI"));
+        assertEquals(7,    f.apply("VII"));
+        assertEquals(8,    f.apply("VIII"));
+        assertEquals(9,    f.apply("IX"));
+        assertEquals(10,   f.apply("X"));
+        assertEquals(11,   f.apply("XI"));
+        assertEquals(12,   f.apply("XII"));
+        assertEquals(13,   f.apply("XIII"));
+        assertEquals(14,   f.apply("XIV"));
+        assertEquals(15,   f.apply("XV"));
+        assertEquals(16,   f.apply("XVI"));
+        assertEquals(17,   f.apply("XVII"));
+        assertEquals(18,   f.apply("XVIII"));
+        assertEquals(19,   f.apply("XIX"));
+        assertEquals(20,   f.apply("XX"));
+        assertEquals(30,   f.apply("XXX"));
+        assertEquals(40,   f.apply("XL"));
+        assertEquals(50,   f.apply("L"));
+        assertEquals(60,   f.apply("LX"));
+        assertEquals(70,   f.apply("LXX"));
+        assertEquals(80,   f.apply("LXXX"));
+        assertEquals(90,   f.apply("XC"));
+        assertEquals(100,  f.apply("C"));
+        assertEquals(200,  f.apply("CC"));
+        assertEquals(300,  f.apply("CCC"));
+        assertEquals(400,  f.apply("CD"));
+        assertEquals(500,  f.apply("D"));
+        assertEquals(600,  f.apply("DC"));
+        assertEquals(700,  f.apply("DCC"));
+        assertEquals(800,  f.apply("DCCC"));
+        assertEquals(900,  f.apply("CM"));
+        assertEquals(1000, f.apply("M"));
+        assertEquals(39,   f.apply("XXXIX"));
+        assertEquals(207,  f.apply("CCVII"));
+        assertEquals(246,  f.apply("CCXLVI"));
+        assertEquals(1066, f.apply("MLXVI"));
+        assertEquals(1776, f.apply("MDCCLXXVI"));
+        assertEquals(1954, f.apply("MCMLIV"));
+        assertEquals(1990, f.apply("MCMXC"));
+        assertEquals(2014, f.apply("MMXIV"));
+        assertEquals(3999, f.apply("MMMCMXCIX"));
+        assertEquals(4000, f.apply("MMMM"));
     }
 
-    @ParameterizedTest(name = "#{index} - Run test for method {0}")
-    @ValueSource(strings = {"romanToInt", "romanToInt_Brute"})
-    public void testMany(String methodName) throws Exception {
+    @Test
+    public void test_romanToInt() {
         Roman roman = new Roman();
-        Method method = TestUtils.getMethod("leetcode.Roman", methodName);
-        for (int i=0; i < 1000000; ++i) {
-            method.invoke(roman, "MDCCLXXVI");
+        test(roman::romanToInt);
+
+    }
+    @Test
+    public void test_romanToInt_Brute() {
+        Roman roman = new Roman();
+        test(roman::romanToInt_Brute);
+    }
+
+    private void testMany(Function<String, Integer> f) {
+        for (int i=0; i < 10000000; ++i) {
+            f.apply("MDCCLXXVI");
         }
+    }
+
+    @Test
+    public void testMany_romanToInt() {
+        Roman roman = new Roman();
+        testMany(roman::romanToInt);
+    }
+
+    @Test
+    public void testMany_romanToInt_Brute() {
+        Roman roman = new Roman();
+        testMany(roman::romanToInt_Brute);
     }
 }

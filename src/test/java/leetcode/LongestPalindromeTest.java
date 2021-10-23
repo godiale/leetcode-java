@@ -7,10 +7,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import static org.hamcrest.Matchers.oneOf;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.isOneOf;
 import static org.hamcrest.Matchers.is;
 
 @ExtendWith(TimingExtension.class)
@@ -42,11 +42,11 @@ class LongestPalindromeTest extends TimingExtension {
         assertThat(ls.longestPalindrome(""), is(""));
         assertThat(ls.longestPalindrome("a"), is("a"));
         assertThat(ls.longestPalindrome("aa"), is("aa"));
-        assertThat(ls.longestPalindrome("ab"), isOneOf("a", "b"));
-        assertThat(ls.longestPalindrome("abc"), isOneOf("a", "b", "c"));
+        assertThat(ls.longestPalindrome("ab"), is(oneOf("a", "b")));
+        assertThat(ls.longestPalindrome("abc"), is(oneOf("a", "b", "c")));
         assertThat(ls.longestPalindrome("abb"), is("bb"));
         assertThat(ls.longestPalindrome("abcb"), is("bcb"));
-        assertThat(ls.longestPalindrome("babad"), isOneOf("bab", "aba"));
+        assertThat(ls.longestPalindrome("babad"), is(oneOf("bab", "aba")));
         assertThat(ls.longestPalindrome("cbbd"), is("bb"));
     }
 
@@ -59,9 +59,7 @@ class LongestPalindromeTest extends TimingExtension {
                 .forEach(n -> {
                     StringBuilder b = new StringBuilder();
                     IntStream.range(0, 1000)
-                            .forEach(i -> {
-                                b.append((char)(r.nextInt(26) + 'a'));
-                            });
+                            .forEach(i -> b.append((char)(r.nextInt(26) + 'a')));
                     String p = lp.longestPalindrome(b.toString());
                     assertTrue(LongestPalindrome.isPalindrome(p));
                 });

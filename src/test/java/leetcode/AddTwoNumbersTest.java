@@ -1,6 +1,5 @@
 package leetcode;
 
-import java.lang.reflect.Method;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -38,11 +37,10 @@ class AddTwoNumbersTest {
             v /= 10;
             if (head == null) {
                 head = li;
-                tail = li;
             } else {
                 tail.next = li;
-                tail = li;
             }
+            tail = li;
         } while (v != 0);
 
         return head;
@@ -58,14 +56,13 @@ class AddTwoNumbersTest {
         ListNode head = null;
         for (int i = 0; i < 20; ++i) {
             ListNode li = new ListNode(1);
-            if (head == null) {
-                head = li;
-            } else {
+            if (head != null) {
                 li.next = head;
-                head = li;
             }
+            head = li;
         }
         final ListNode headConst = head;
+        //noinspection ResultOfMethodCallIgnored
         assertThrows(IllegalArgumentException.class, () -> listToInt(headConst));
     }
 
@@ -80,13 +77,12 @@ class AddTwoNumbersTest {
     }
 
     @Test
-    void testMany() throws Exception {
+    void testMany() {
         AddTwoNumbers addTwoNumbers = new AddTwoNumbers();
-        Method method = TestUtils.getMethod("leetcode.AddTwoNumbers", "addTwoNumbers");
         ListNode l1 = intToList(1234);
         ListNode l2 = intToList(5678);
-        for (int i=0; i < 10000; ++i) {
-            method.invoke(addTwoNumbers, l1, l2);
+        for (int i=0; i < 100000; ++i) {
+            addTwoNumbers.addTwoNumbers(l1, l2);
         }
     }
 }

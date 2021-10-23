@@ -27,11 +27,10 @@ class AddTwoNumbers {
 
         do {
             int d = l1.val + l2.val + extra;
+            extra = 0;
             if (d > 9) {
                 extra = 1;
                 d -= 10;
-            } else {
-                extra = 0;
             }
             l1.val = d;
             lp1 = l1;
@@ -57,11 +56,10 @@ class AddTwoNumbers {
 
         while (extra > 0 && l != null) {
             int d = l.val + extra;
+            extra = 0;
             if (d > 9) {
                 extra = 1;
                 d -= 10;
-            } else {
-                extra = 0;
             }
             l.val = d;
             lp = l;

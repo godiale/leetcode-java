@@ -19,6 +19,7 @@ class MedianOfTwoArraysTest {
 
     private static MedianOfTwoArrays medianSearch;
 
+    @SuppressWarnings("unused")
     @BeforeAll
     private static void setUp() {
         medianSearch = new MedianOfTwoArrays();

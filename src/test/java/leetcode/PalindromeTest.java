@@ -12,30 +12,30 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class PalindromeTest {
     @Test
     public void test() {
-        Palindrome palindrome = new Palindrome();
-        assertTrue(palindrome.isPalindrome(0));
-        assertTrue(palindrome.isPalindrome(1));
-        assertTrue(palindrome.isPalindrome(121));
-        assertTrue(palindrome.isPalindrome(2332));
-        assertTrue(palindrome.isPalindrome(44455444));
-        assertTrue(palindrome.isPalindrome(2147447412));
-        assertFalse(palindrome.isPalindrome(-1));
-        assertFalse(palindrome.isPalindrome(10));
-        assertFalse(palindrome.isPalindrome(12));
-        assertFalse(palindrome.isPalindrome(-989));
-        assertFalse(palindrome.isPalindrome(1000));
-        assertFalse(palindrome.isPalindrome(3332));
-        assertFalse(palindrome.isPalindrome(444553444));
-        assertFalse(palindrome.isPalindrome(-1256776521));
-        assertFalse(palindrome.isPalindrome(Integer.MAX_VALUE));
-        assertFalse(palindrome.isPalindrome(Integer.MIN_VALUE));
+        Palindrome pm = new Palindrome();
+        assertTrue(pm.isPalindrome(0));
+        assertTrue(pm.isPalindrome(1));
+        assertTrue(pm.isPalindrome(121));
+        assertTrue(pm.isPalindrome(2332));
+        assertTrue(pm.isPalindrome(44455444));
+        assertTrue(pm.isPalindrome(2147447412));
+        assertFalse(pm.isPalindrome(-1));
+        assertFalse(pm.isPalindrome(10));
+        assertFalse(pm.isPalindrome(12));
+        assertFalse(pm.isPalindrome(-989));
+        assertFalse(pm.isPalindrome(1000));
+        assertFalse(pm.isPalindrome(3332));
+        assertFalse(pm.isPalindrome(444553444));
+        assertFalse(pm.isPalindrome(-1256776521));
+        assertFalse(pm.isPalindrome(Integer.MAX_VALUE));
+        assertFalse(pm.isPalindrome(Integer.MIN_VALUE));
     }
 
     @Test
     public void testMany() {
-        Palindrome palindrome = new Palindrome();
+        Palindrome pm = new Palindrome();
         for (int i=0; i < 100000; ++i) {
-            palindrome.isPalindrome(234565432);
+            pm.isPalindrome(234565432);
         }
     }
 }

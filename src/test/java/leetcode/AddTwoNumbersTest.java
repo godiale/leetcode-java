@@ -78,11 +78,11 @@ class AddTwoNumbersTest {
 
     @Test
     void testMany() {
-        AddTwoNumbers addTwoNumbers = new AddTwoNumbers();
+        AddTwoNumbers adder = new AddTwoNumbers();
         ListNode l1 = intToList(1234);
         ListNode l2 = intToList(5678);
         for (int i=0; i < 100000; ++i) {
-            addTwoNumbers.addTwoNumbers(l1, l2);
+            adder.addTwoNumbers(l1, l2);
         }
     }
 }

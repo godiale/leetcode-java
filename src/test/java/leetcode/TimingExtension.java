@@ -21,7 +21,7 @@ public class TimingExtension implements BeforeTestExecutionCallback, AfterTestEx
         long startTime = getStore(context).remove(START_TIME, long.class);
         long duration = System.currentTimeMillis() - startTime;
 
-        System.out.println(String.format("Method [%s] took %s ms.", testMethod.getName(), duration));
+        System.out.printf("Method [%s] took %s ms.%n", testMethod.getName(), duration);
     }
 
     private ExtensionContext.Store getStore(ExtensionContext context) {

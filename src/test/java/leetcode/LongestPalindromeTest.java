@@ -31,23 +31,23 @@ class LongestPalindromeTest extends TimingExtension {
 
     @Test
     void longestPalindromeTest() {
-        var ls = new LongestPalindrome();
+        var lp = new LongestPalindrome();
         Stream.of(" ", "a", "aba")
                 .forEach(s ->
                         IntStream.range(1, 100)
                                 .forEach(n -> {
                                     String rs = StringUtils.repeat(s, n);
-                                    assertEquals(rs, ls.longestPalindrome(rs));
+                                    assertEquals(rs, lp.longestPalindrome(rs));
                                 }));
-        assertThat(ls.longestPalindrome(""), is(""));
-        assertThat(ls.longestPalindrome("a"), is("a"));
-        assertThat(ls.longestPalindrome("aa"), is("aa"));
-        assertThat(ls.longestPalindrome("ab"), is(oneOf("a", "b")));
-        assertThat(ls.longestPalindrome("abc"), is(oneOf("a", "b", "c")));
-        assertThat(ls.longestPalindrome("abb"), is("bb"));
-        assertThat(ls.longestPalindrome("abcb"), is("bcb"));
-        assertThat(ls.longestPalindrome("babad"), is(oneOf("bab", "aba")));
-        assertThat(ls.longestPalindrome("cbbd"), is("bb"));
+        assertThat(lp.longestPalindrome(""), is(""));
+        assertThat(lp.longestPalindrome("a"), is("a"));
+        assertThat(lp.longestPalindrome("aa"), is("aa"));
+        assertThat(lp.longestPalindrome("ab"), is(oneOf("a", "b")));
+        assertThat(lp.longestPalindrome("abc"), is(oneOf("a", "b", "c")));
+        assertThat(lp.longestPalindrome("abb"), is("bb"));
+        assertThat(lp.longestPalindrome("abcb"), is("bcb"));
+        assertThat(lp.longestPalindrome("babad"), is(oneOf("bab", "aba")));
+        assertThat(lp.longestPalindrome("cbbd"), is("bb"));
     }
 
 
